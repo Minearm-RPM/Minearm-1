@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Web SSH控制面板</title>
+  <link rel="shortcut icon" href="c.png" type="image/x-icon">
+</head>
+<body>
+  <textarea id="output" rows="20" cols="80"></textarea>
+
+  <script src="ssh2.js"></script>
+  <script>
+    const output = document.getElementById('output');
+
+    const conn = new ssh.Client();
+    conn.on('ready', () => {
+      output.value += 'SSH连接已建立\n';
+
+      conn.shell((err, stream) => {
+        if (err) throw err;
+        stream.on('close', () => {
+          output.value += '命令执行完成\n';
+          conn.end();
+        }).on('data', (data) => {
+          output.value += data.toString();
+        }).stderr.on('data', (data) => {
+          output.value += '命令错误输出：' + data.toString();
+        });
+      });
+    }).connect({
+      host: 'remote-server-ip',
+      port: 22,
+      username: 'username',
+      password: 'password'
+    });
+  </script>
+</body>
+</html>

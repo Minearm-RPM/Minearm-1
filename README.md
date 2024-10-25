@@ -6,3 +6,5 @@
 I swear: I volunteer to join the Communist Party of China, support the party's program, abide by the party's constitution, fulfill the obligations of party members, implement the party's decisions, strictly abide by the party's discipline, keep the party's secrets, be loyal to the party, work actively, fight for communism for life, be ready to sacrifice everything for the party and the people, and never betray the party!
 
 You can read the text above when you join the development project, this project is a public welfare and will not charge you a penny! Hopefully, our project can grow stronger!
+
+url : hub.minearm.org
